@@ -4,9 +4,11 @@ import { Experiences } from "./Experiences";
 
 export const Routers = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/experiences" element={<Experiences />}></Route>
-    </Routes>
+    <div className="pt-4">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/experiences" element={<Experiences />}></Route>
+      </Routes>
+    </div>
   );
 };
