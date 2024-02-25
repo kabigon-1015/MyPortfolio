@@ -26,7 +26,7 @@ export const DisplayExperienceIcon = ({
   experienceType: string;
 }) => {
   return (
-    <span className="absolute z-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-blue-100">
+    <span className="absolute z-10 flex items-center justify-center w-6 h-6 bg-blue-200 rounded-full -start-3 ring-8 ring-blue-200">
       <DynamicComponent experienceType={experienceType} />
     </span>
   );
