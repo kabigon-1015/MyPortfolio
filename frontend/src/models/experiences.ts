@@ -17,8 +17,14 @@ export type GetExperiences = {
   updatedAt?: Date;
 };
 
-export const getDateString = (date: Date) => {
-  return dayjs(date).format("YYYY年MM月");
+export const getDateString = (startDate: Date, endDate?: Date) => {
+  const start = dayjs(startDate).format("YYYY年MM月");
+  const end = dayjs(endDate).format("YYYY年MM月");
+  return endDate
+    ? startDate === endDate
+      ? `${start}`
+      : `${start}〜${end}`
+    : `${start}〜`;
 };
 
 export const encodeExperienceType = (ExperienceType: string) => {
