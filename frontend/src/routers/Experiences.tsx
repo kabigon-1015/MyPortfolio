@@ -55,7 +55,7 @@ export const Experiences = () => {
             );
           })
         ) : (
-          <NowLoading loadingWords="これまでの取り組み"></NowLoading>
+          <NowLoading loadingWords="これまでの取り組みを読み込んでいます"></NowLoading>
         )}
       </div>
     </>
