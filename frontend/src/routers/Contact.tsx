@@ -1,11 +1,5 @@
-import { useRef, useState } from "react";
-import {
-  ResponseMessage,
-  inVaildMail,
-  inVaildText,
-  submit,
-  vaildForm,
-} from "../composable/contact";
+import { useState } from "react";
+import { ResponseMessage, submit, vaildForm } from "../composable/contact";
 import { NowLoading } from "../components/common/NowLoading";
 import { AlertSuccess } from "../components/common/AlertSuccess";
 import { AlertError } from "../components/common/AlertError";
