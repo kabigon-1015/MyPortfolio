@@ -5,6 +5,8 @@ import { NowLoading } from "../components/common/NowLoading";
 import { FaGithub } from "react-icons/fa6";
 import { IconContext } from "react-icons";
 import { ProductDetailDialog } from "../components/products/ProductDetailDialog";
+import { UsingTechBadge } from "../components/products/UsingTechBadge";
+import { Tech } from "../models/tech";
 
 export const Products = () => {
   const [productsData, setProductsData] = useState<Product[]>();
@@ -50,7 +52,17 @@ export const Products = () => {
                   </div>
                   <div className="card-body">
                     <h2 className="card-title">{item.title}</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <div className="flex flex-wrap">
+                      {item.usingTech &&
+                        item.usingTech.map((tech: Tech) => {
+                          return (
+                            <UsingTechBadge
+                              tech={tech}
+                              key={tech.id}
+                            ></UsingTechBadge>
+                          );
+                        })}
+                    </div>
                     <div className="card-actions justify-end">
                       <IconContext.Provider value={{ size: "50px" }}>
                         <a href={item.github}>
