@@ -1,5 +1,6 @@
 import dayjs from "dayjs";
 import { match } from "ts-pattern";
+import { Tech } from "./tech";
 
 export type GetExperiences = {
   id: string;
@@ -11,6 +12,7 @@ export type GetExperiences = {
   github?: string;
   url?: string;
   urlName?: string;
+  usingTech?: Tech[];
   publishedAt?: Date;
   revisedAt?: Date;
   createdAt?: Date;
