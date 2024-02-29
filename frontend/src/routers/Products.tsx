@@ -50,7 +50,18 @@ export const Products = () => {
                   </div>
                   <div className="card-body">
                     <h2 className="card-title">{item.title}</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
+                    <div className="flex flex-wrap">
+                      <div className="badge badge-outline">default</div>
+                      <div className="badge badge-primary badge-outline">
+                        primary
+                      </div>
+                      <div className="badge badge-secondary badge-outline">
+                        secondary
+                      </div>
+                      <div className="badge badge-accent badge-outline">
+                        accent
+                      </div>
+                    </div>
                     <div className="card-actions justify-end">
                       <IconContext.Provider value={{ size: "50px" }}>
                         <a href={item.github}>
