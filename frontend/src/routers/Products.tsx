@@ -4,6 +4,7 @@ import { Product } from "../models/products";
 import { NowLoading } from "../components/common/NowLoading";
 import { FaGithub } from "react-icons/fa6";
 import { IconContext } from "react-icons";
+import { ProductDetailDialog } from "../components/products/ProductDetailDialog";
 
 export const Products = () => {
   const [productsData, setProductsData] = useState<Product[]>();
@@ -28,17 +29,10 @@ export const Products = () => {
   };
   return (
     <>
-      <dialog id="my_modal_3" className="modal" ref={isProductDetailOpen}>
-        <div className="modal-box">
-          <form method="dialog">
-            {/* if there is a button in form, it will close the modal */}
-            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
-              ✕
-            </button>
-          </form>
-          <h3 className="font-bold text-lg">{forcusProduct?.title}</h3>
-          <p className="py-4">Press ESC key or click on ✕ button to close</p>
-        </div>
+      <dialog className="modal w-full" ref={isProductDetailOpen}>
+        <ProductDetailDialog
+          forcusProduct={forcusProduct}
+        ></ProductDetailDialog>
       </dialog>
       <h1 className="block mb-1 text-2xl font-semibold text-gray-900 dark:text-white p-3">
         これまでの制作物
