@@ -5,6 +5,8 @@ import { NowLoading } from "../components/common/NowLoading";
 import { FaGithub } from "react-icons/fa6";
 import { IconContext } from "react-icons";
 import { ProductDetailDialog } from "../components/products/ProductDetailDialog";
+import { UsingTechBadge } from "../components/products/UsingTechBadge";
+import { Tech } from "../models/tech";
 
 export const Products = () => {
   const [productsData, setProductsData] = useState<Product[]>();
@@ -51,16 +53,15 @@ export const Products = () => {
                   <div className="card-body">
                     <h2 className="card-title">{item.title}</h2>
                     <div className="flex flex-wrap">
-                      <div className="badge badge-outline">default</div>
-                      <div className="badge badge-primary badge-outline">
-                        primary
-                      </div>
-                      <div className="badge badge-secondary badge-outline">
-                        secondary
-                      </div>
-                      <div className="badge badge-accent badge-outline">
-                        accent
-                      </div>
+                      {item.usingTech &&
+                        item.usingTech.map((tech: Tech) => {
+                          return (
+                            <UsingTechBadge
+                              tech={tech}
+                              key={tech.id}
+                            ></UsingTechBadge>
+                          );
+                        })}
                     </div>
                     <div className="card-actions justify-end">
                       <IconContext.Provider value={{ size: "50px" }}>
