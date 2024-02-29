@@ -27,8 +27,8 @@ export const getDateString = (startDate: Date, endDate?: Date) => {
     : `${start}〜`;
 };
 
-export const encodeExperienceType = (ExperienceType: string) => {
-  return match(ExperienceType)
+export const encodeExperienceType = (experienceType: string) => {
+  return match(experienceType)
     .with("インターン", () => "FaRegBuilding")
     .with("ハッカソン", () => "FaLaptopCode")
     .with("研究", () => "HiAcademicCap")
