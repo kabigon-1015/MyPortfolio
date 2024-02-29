@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { client } from "../composable/experiences";
 import { Product } from "../models/products";
 import { NowLoading } from "../components/common/NowLoading";
@@ -7,6 +7,8 @@ import { IconContext } from "react-icons";
 
 export const Products = () => {
   const [productsData, setProductsData] = useState<Product[]>();
+  const [forcusProduct, setForcusProduct] = useState<Product>();
+  const isProductDetailOpen = useRef<HTMLDialogElement>(null);
   useEffect(() => {
     (async () => {
       const products = await client
@@ -19,8 +21,25 @@ export const Products = () => {
       setProductsData(products.contents);
     })();
   }, []);
+  const openProductDetailDialog = (itemId: string) => {
+    isProductDetailOpen.current?.showModal();
+    const target = productsData?.find((item: Product) => item.id === itemId);
+    target && setForcusProduct(target);
+  };
   return (
     <>
+      <dialog id="my_modal_3" className="modal" ref={isProductDetailOpen}>
+        <div className="modal-box">
+          <form method="dialog">
+            {/* if there is a button in form, it will close the modal */}
+            <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
+          <h3 className="font-bold text-lg">{forcusProduct?.title}</h3>
+          <p className="py-4">Press ESC key or click on ✕ button to close</p>
+        </div>
+      </dialog>
       <h1 className="block mb-1 text-2xl font-semibold text-gray-900 dark:text-white p-3">
         これまでの制作物
       </h1>
@@ -44,7 +63,12 @@ export const Products = () => {
                           <FaGithub></FaGithub>
                         </a>
                       </IconContext.Provider>
-                      <button className="btn btn-primary">詳細</button>
+                      <button
+                        className="btn btn-primary"
+                        onClick={() => openProductDetailDialog(item.id)}
+                      >
+                        詳細
+                      </button>
                     </div>
                   </div>
                 </div>
