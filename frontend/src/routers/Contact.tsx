@@ -45,33 +45,42 @@ export const Contact = () => {
             <div className="md:flex md:items-center mb-6">
               <div className="md:w-1/3">お名前</div>
               <div className="md:w-2/3">
-                <input
-                  type="text"
-                  placeholder="xxxx"
-                  className="input input-bordered w-full max-w-xs"
-                  onChange={(e) => setName(e.target.value)}
-                />
+                <div className="indicator">
+                  <span className="indicator-item badge">Required</span>
+                  <input
+                    type="text"
+                    placeholder="xxxx"
+                    className="input input-bordered w-full max-w-xs"
+                    onChange={(e) => setName(e.target.value)}
+                  />
+                </div>
               </div>
             </div>
             <div className="md:flex md:items-center mb-6">
               <div className="md:w-1/3">メールアドレス</div>
               <div className="md:w-2/3">
-                <input
-                  type="text"
-                  placeholder="xxxx@examle.com"
-                  className="input input-bordered w-full max-w-xs"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
+                <div className="indicator">
+                  <span className="indicator-item badge">Required</span>
+                  <input
+                    type="text"
+                    placeholder="xxxx@examle.com"
+                    className="input input-bordered w-full max-w-xs"
+                    onChange={(e) => setEmail(e.target.value)}
+                  />
+                </div>
               </div>
             </div>
             <div className="md:flex md:items-center mb-6">
               <div className="md:w-1/3">内容</div>
               <div className="md:w-2/3">
-                <textarea
-                  className="textarea textarea-bordered h-48 w-96"
-                  placeholder="ご意見やお問い合わせをご記入ください"
-                  onChange={(e) => setContent(e.target.value)}
-                ></textarea>
+                <div className="indicator">
+                  <span className="indicator-item badge">Required</span>
+                  <textarea
+                    className="textarea textarea-bordered h-48 w-96"
+                    placeholder="ご意見やお問い合わせをご記入ください"
+                    onChange={(e) => setContent(e.target.value)}
+                  ></textarea>
+                </div>
               </div>
             </div>
             <button
